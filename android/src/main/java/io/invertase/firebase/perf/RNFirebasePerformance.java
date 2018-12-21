@@ -88,32 +88,26 @@ public class RNFirebasePerformance extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void putTraceMetric(String identifier, String metricName, Integer value, Promise promise) {
-    getOrCreateTrace(identifier).putMetric(metricName, value.longValue());
     promise.resolve(null);
   }
 
   @ReactMethod
   public void removeTraceAttribute(String identifier, String attribute, Promise promise) {
-    getOrCreateTrace(identifier).removeAttribute(attribute);
     promise.resolve(null);
   }
 
   @ReactMethod
   public void startTrace(String identifier, Promise promise) {
-    getOrCreateTrace(identifier).start();
     promise.resolve(null);
   }
 
   @ReactMethod
   public void stopTrace(String identifier, Promise promise) {
-    getOrCreateTrace(identifier).stop();
-    traces.remove(identifier);
     promise.resolve(null);
   }
 
   @ReactMethod
   public void incrementCounter(String identifier, String event) {
-    getOrCreateTrace(identifier).incrementCounter(event);
   }
 
   /**
